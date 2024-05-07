@@ -27,7 +27,7 @@ sudo apt install astyle cmake gcc ninja-build  pkg-config libssl-dev python3-pyt
 For macOS:
 
 ```shell
- brew install cmake ninja openssl@1.1 wget doxygen graphviz astyle pkg-config && pip3 install pytest pytest-xdist pyyaml
+brew install cmake ninja openssl@1.1 wget doxygen graphviz astyle pkg-config && pip3 install pytest pytest-xdist pyyaml
 ```
 
 ## 2. Build the library
