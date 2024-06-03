@@ -27,7 +27,7 @@ sudo apt install astyle cmake gcc ninja-build  pkg-config libssl-dev python3-pyt
 For macOS:
 
 ```shell
- brew install cmake ninja openssl@1.1 wget doxygen graphviz astyle pkg-config && pip3 install pytest pytest-xdist pyyaml
+brew install cmake ninja openssl@1.1 wget doxygen graphviz astyle pkg-config && pip3 install pytest pytest-xdist pyyaml
 ```
 
 ## 2. Build the library
@@ -43,6 +43,9 @@ The C header file `libabelsdk.h` will also be created in the `build` directory. 
 ## 3. Use the library
 
 The library can be used in any programming language that supports C bindings.
+
+Note that when building the SDK library, the OpenSSL library is linked statically on macOS and dynamically on Linux. Therefore, to run an application using the SDK library on another machine, it is required to have the OpenSSL library installed on Linux while it is not required on macOS.
+
 As the library uses [Protocol Buffers](https://protobuf.dev/) as the serialization format, you will need to generate the corresponding code for your language using the protocol buffer compiler.
 The definition files (`*.proto`) are located in the `resources/protobuf` directory.
 
