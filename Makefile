@@ -3,6 +3,7 @@ SHELL:=/bin/bash
 
 ifeq ($(OS), darwin)
 	DYLIB_EXT = dylib
+	DYLIB_VERSION = 1.1.0
 else
 	DYLIB_EXT = so
 endif
@@ -31,7 +32,11 @@ clean-all:
 
 $(BUILD_DIR)/$(DYLIB_BIN): $(PROTO_SRC_DIR)/$(CORE_PB_GO) $(LIBOQS_PKG_CONFIG)
 	@echo "==> Building $(DYLIB_BIN) ..."
+ifeq ($(OS), darwin)
+	PKG_CONFIG_PATH=$(PKG_CONFIG_DIR) go build -buildmode=c-shared -ldflags "-extldflags '-compatibility_version $(DYLIB_VERSION) -current_version $(DYLIB_VERSION)'" -o $(BUILD_DIR)/$(DYLIB_BIN)
+else
 	PKG_CONFIG_PATH=$(PKG_CONFIG_DIR) go build -buildmode=c-shared -o $(BUILD_DIR)/$(DYLIB_BIN)
+endif
 
 $(PROTO_SRC_DIR)/$(CORE_PB_GO): $(PROTO_RESOURCE_DIR)/$(CORE_PB_GO)
 	@echo "==> Copying core.pb.go ..."
