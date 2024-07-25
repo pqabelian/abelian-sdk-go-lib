@@ -6,8 +6,8 @@ package main
 import "C"
 
 import (
-	core "abelian.info/sdk/core"
-	pb "abelian.info/sdk/proto"
+	core "github.com/pqabelian/abelian-sdk-go"
+	pb "github.com/pqabelian/abelian-sdk-go-lib/proto"
 
 	"errors"
 	"unsafe"
@@ -193,9 +193,10 @@ func DecodeCoinValueFromTxVoutScript(argsData []byte) *C.char {
 	// Prepare data.
 	txVoutScript := core.AsBytes(args.GetTxVoutScript())
 	viewSecretKey := core.NewCryptoKey(args.GetViewSecretKey())
+	cryptoAddress := core.NewCryptoAddress(args.GetCryptoAddress())
 
 	// Do real work.
-	coinValue, err := core.DecodeValueFromTxOutData(txVoutScript, viewSecretKey)
+	coinValue, err := core.DecodeValueFromTxOutDataByKeys(txVoutScript, cryptoAddress, viewSecretKey)
 	panicIf(err)
 
 	// Marshal result and return it.
