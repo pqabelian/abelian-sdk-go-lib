@@ -1,10 +1,10 @@
 module github.com/pqabelian/abelian-sdk-go-lib
 
-go 1.18
+go 1.20
 
 require (
-	github.com/pqabelian/abelian-sdk-go v0.0.0-20240724164142-116c278e5aaf
-	google.golang.org/protobuf v1.34.2
+	github.com/pqabelian/abelian-sdk-go v0.0.0-20240728163151-80881e84832a
+	google.golang.org/protobuf v1.33.0
 )
 
 require (
