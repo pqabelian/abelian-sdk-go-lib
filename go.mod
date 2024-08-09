@@ -3,7 +3,7 @@ module github.com/pqabelian/abelian-sdk-go-lib
 go 1.20
 
 require (
-	github.com/pqabelian/abelian-sdk-go v0.0.0-20240728163151-80881e84832a
+	github.com/pqabelian/abelian-sdk-go v0.0.0-20240809150220-8dcbf4c49f74
 	google.golang.org/protobuf v1.33.0
 )
 
