@@ -40,6 +40,9 @@ endif
 
 $(PROTO_SRC_DIR)/$(CORE_PB_GO): $(PROTO_RESOURCE_DIR)/$(CORE_PB_GO)
 	@echo "==> Copying core.pb.go ..."
+	@if [ ! -d "$(PROTO_SRC_DIR)" ]; then \
+		mkdir -p "$(PROTO_SRC_DIR)"; \
+	fi
 	cp $(PROTO_RESOURCE_DIR)/$(CORE_PB_GO) $(PROTO_SRC_DIR)
 
 ifeq ($(OS), darwin)

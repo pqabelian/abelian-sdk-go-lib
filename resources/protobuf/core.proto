@@ -76,6 +76,7 @@ message DecodeFingerprintFromTxVoutScriptResult {
 message DecodeCoinValueFromTxVoutScriptArgs {
     bytes txVoutScript = 1;
     bytes viewSecretKey = 2;
+    bytes cryptoAddress = 3;
 }
 
 message DecodeCoinValueFromTxVoutScriptResult {
